@@ -446,9 +446,9 @@ input[type="radio"], input[type="checkbox"] {
   color: #2c3e50;
   font-size: 0.93rem;
   text-align: center;
-  padding: 15px;
+  padding: 12px;
   border-radius: 8px;
-  min-height: 34px;
+  min-height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -538,9 +538,9 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .icon-img {
-  max-width: 200px;
-  max-height: 200px;
-  margin: 0 auto 15px auto;
+  max-width: 150px;
+  max-height: 150px;
+  margin: 0 auto 10px auto;
   display: block;
   object-fit: contain;
 }
@@ -575,21 +575,21 @@ input[type="radio"], input[type="checkbox"] {
 .ems-section {
   background: #f8f9fa;
   border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 15px;
+  margin-bottom: 15px;
   border: 1px solid #e9ecef;
 }
 
 .ems-section h4 {
   color: #2c3e50;
-  font-size: 1.2rem;
-  margin-bottom: 15px;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
 }
 
 .ems-img {
-  max-width: 250px;
+  max-width: 150px;
   height: auto;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 12px auto;
   display: block;
 }
 
@@ -617,15 +617,15 @@ input[type="radio"], input[type="checkbox"] {
 .netz-section {
   background: #f8f9fa;
   border-radius: 8px;
-  padding: 70px;
-  margin-bottom: 20px;
+  padding: 15px;
+  margin-bottom: 15px;
   border: 1px solid #e9ecef;
 }
 
 .netz-section h4 {
   color: #2c3e50;
-  font-size: 1.2rem;
-  margin-bottom: 15px;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
 }
 
 .netz-section .input-group {
@@ -776,7 +776,7 @@ input[type="radio"], input[type="checkbox"] {
 .pdf-right-col .icon-box[data-component="energiegemeinschaft"],
 .pdf-right-col .icon-box[data-component="infoterminal"],
 .pdf-right-col .icon-box[data-component="stromtankstelle"] {
-  margin-bottom: 100px;
+  margin-bottom: 15px;
 }
 
 .pdf-right-col .icon-box[data-component="stromtankstelle"] {
@@ -784,14 +784,14 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .pdf-right-col .icon-box[data-component="energiegemeinschaft"] .icon-img {
-  max-width: 300px;
-  max-height: 450px;
+  max-width: 150px;
+  max-height: 150px;
 }
 
 .pdf-right-col .icon-box[data-component="energiegemeinschaft"] {
-  min-height: 350px;
+  min-height: auto;
 }
 
 .pdf-right-col .netz-section {
-  margin-bottom: 100px;
+  margin-bottom: 15px;
 }
