@@ -93,5 +93,36 @@
             </div>
         </div>
     </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Show orientation alert for mobile devices
+      if (window.innerWidth < 768) { // Check if device is mobile
+        const alertDiv = document.createElement('div');
+        alertDiv.style.cssText = `
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: rgba(0, 0, 0, 0.8);
+          color: white;
+          padding: 20px;
+          border-radius: 10px;
+          text-align: center;
+          z-index: 9999;
+          font-size: 16px;
+        `;
+        alertDiv.textContent = 'Bitte halten Sie Ihr Telefon waagrecht';
+        document.body.appendChild(alertDiv);
+
+        // Remove alert after 2 seconds
+        setTimeout(() => {
+          alertDiv.remove();
+        }, 2000);
+      }
+
+      // Rest of your existing code
+    });
+    </script>
 </body>
 </html>
