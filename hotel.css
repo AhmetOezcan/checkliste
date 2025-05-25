@@ -25,7 +25,7 @@ body {
 }
 
 .header-logo {
-    height: 80px;
+    height: 200px;
     width: auto;
     margin: 0;
     object-fit: contain;
@@ -126,7 +126,21 @@ textarea {
 
 /* Button */
 button[type="submit"] {
-    display: none;
+    width: 100%;
+    padding: 15px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #1b5e20;
 }
 
 /* Footer */
@@ -235,7 +249,7 @@ fieldset[legend*="Transformator"] div[style*="margin-left: 20px"] {
 }
 
 .header-logo {
-  max-width: 70px;
+  max-width: 200px;
   margin-bottom: 4px;
 }
 
@@ -603,7 +617,7 @@ input[type="radio"], input[type="checkbox"] {
 .netz-section {
   background: #f8f9fa;
   border-radius: 8px;
-  padding: 20px;
+  padding: 70px;
   margin-bottom: 20px;
   border: 1px solid #e9ecef;
 }
@@ -755,5 +769,30 @@ input[type="radio"], input[type="checkbox"] {
   margin-bottom: 8px;
   color: #2c3e50;
   font-weight: 500;
+}
+
+/* Abstand zwischen den großen Boxen in der rechten Spalte */
+.pdf-right-col .icon-box[data-component="wasserstoff"],
+.pdf-right-col .icon-box[data-component="energiegemeinschaft"],
+.pdf-right-col .icon-box[data-component="infoterminal"],
+.pdf-right-col .icon-box[data-component="stromtankstelle"] {
+  margin-bottom: 100px;
+}
+
+.pdf-right-col .icon-box[data-component="stromtankstelle"] {
+  margin-bottom: 0;
+}
+
+.pdf-right-col .icon-box[data-component="energiegemeinschaft"] .icon-img {
+  max-width: 300px;
+  max-height: 450px;
+}
+
+.pdf-right-col .icon-box[data-component="energiegemeinschaft"] {
+  min-height: 350px;
+}
+
+.pdf-right-col .netz-section {
+  margin-bottom: 100px;
 }
   

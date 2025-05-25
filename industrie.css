@@ -1,0 +1,11 @@
+.header-logo {
+    height: 200px;  /* Increased from 120px */
+    width: auto;
+    margin: 0;
+    object-fit: contain;
+}
+
+.header-logo {
+    max-width: 200px;  /* Increased from 100px */
+    margin-bottom: 4px;
+} 

@@ -37,4 +37,80 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  // PDF Generation
+  const form = document.querySelector('form');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // Get the .pdf-main element
+      const element = document.querySelector('.pdf-main');
+      if (!element) {
+        console.error('Element .pdf-main not found');
+        return;
+      }
+
+      try {
+        // Load required libraries dynamically
+        await loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
+        await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
+
+        // Create canvas from the element
+        const canvas = await html2canvas(element, {
+          scale: 2, // Higher scale for better quality
+          useCORS: true, // Enable CORS for images
+          logging: false,
+          windowWidth: element.scrollWidth,
+          windowHeight: element.scrollHeight
+        });
+
+        // Create PDF
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF({
+          orientation: 'portrait',
+          unit: 'mm',
+          format: 'a4'
+        });
+
+        // Calculate dimensions to fit the content properly
+        const imgWidth = 210; // A4 width in mm
+        const pageHeight = 297; // A4 height in mm
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        
+        // Add the image to the PDF
+        pdf.addImage(canvas.toDataURL('image/jpeg', 1.0), 'JPEG', 0, 0, imgWidth, imgHeight);
+
+        // If the content is taller than one page, add additional pages
+        let heightLeft = imgHeight;
+        let position = 0;
+        let page = 1;
+
+        while (heightLeft >= pageHeight) {
+          position = heightLeft - pageHeight;
+          pdf.addPage();
+          pdf.addImage(canvas.toDataURL('image/jpeg', 1.0), 'JPEG', 0, -position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+          page++;
+        }
+
+        // Save the PDF
+        pdf.save('checkliste.pdf');
+      } catch (error) {
+        console.error('Error generating PDF:', error);
+        alert('Fehler beim Generieren der PDF-Datei. Bitte versuchen Sie es erneut.');
+      }
+    });
+  }
 });
+
+// Helper function to load scripts dynamically
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+}

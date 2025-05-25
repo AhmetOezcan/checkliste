@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energy Storage System Checkliste</title>
+  <link rel="stylesheet" href="on_off.css">
+  <style>
+    .icon-grid {
+      margin-bottom: 40px;  /* Increased space after generator grid */
+    }
+    .icon-box[data-component="wasserstoff"] {
+      margin-bottom: 0;  /* Remove space after Wasserstoff Elektolyse */
+    }
+    .icon-box[data-component="brennstoffzelle"] {
+      margin-top: 0;  /* Remove space before Wasserstoff-Brennstoffzelle */
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-header">
+    <img src="netlogo.jpg" alt="NET Logo" class="header-logo">
+    <div class="header-text">
+      <h1>Energy Storage System Checkliste</h1>
+      <p>Energiegemeinschaft mit Stromspeicher und Energiemanagement – Ziel: 100% Eigenenergieversorgung anzustreben Energiegemeinschaften - autarke Dörfer - Schutzhütten - Landwirtschaft</p>
+      <h2>NET Ihr gesamtheitlicher Anbieter für Gesamtprojekte</h2>
+    </div>
+  </header>
+
+  <h2>NET – Neue Energie Technik GmbH</h2>
+  <p>NET & SHINEYOUNG</p>
+
+  <div class="pdf-main">
+    <div class="pdf-left-col">
+      <form>
+      <!-- Seehöhe -->
+      <fieldset>
+        <legend>Seehöhe</legend>
+        <div class="radio-group">
+          <label><input type="radio" name="seehoehe" value="<=2000m"> <span class="comparison-operator">&lt;=</span> 2000m</label>
+          <label><input type="radio" name="seehoehe" value="2000-4000m"> 2000 – 4000m</label>
+          <label><input type="radio" name="seehoehe" value=">=4000m"> <span class="comparison-operator">&gt;=</span> 4000m</label>
+        </div>
+        <div class="subtopic">
+          <label>Entfernung zur Küste:</label>
+          <div class="radio-group">
+            <label><input type="radio" name="kueste" value="<=1km"> <span class="comparison-operator">&lt;=</span> 1 km</label>
+            <label><input type="radio" name="kueste" value=">1km"> <span class="comparison-operator">&gt;</span> 1 km</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Temperatur -->
+      <fieldset>
+        <legend>Temperaturbereich</legend>
+        <div class="input-group">
+          <label for="tempMax">Max °C:</label>
+          <input type="number" id="tempMax" name="tempMax">
+        </div>
+        <div class="input-group">
+          <label for="tempMin">Min °C:</label>
+          <input type="number" id="tempMin" name="tempMin">
+        </div>
+      </fieldset>
+
+      <!-- Montage-Adresse -->
+      <fieldset>
+        <legend>Montage-Adresse</legend>
+        <div class="input-group">
+          <label for="strasse">Straße und Hausnummer:</label>
+          <input type="text" id="strasse" name="strasse" required>
+        </div>
+        <div class="input-group">
+          <label for="plz">Postleitzahl:</label>
+          <input type="text" id="plz" name="plz" required>
+        </div>
+        <div class="input-group">
+          <label for="ort">Ort:</label>
+          <input type="text" id="ort" name="ort" required>
+        </div>
+        <div class="input-group">
+          <label for="land">Land:</label>
+          <input type="text" id="land" name="land" required>
+        </div>
+      </fieldset>
+
+      <!-- Anforderungen -->
+      <fieldset>
+        <legend>Anforderungen an den Speicher</legend>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="anforderung" value="erneuerbare"> Erneuerbare Energie</label>
+          <label><input type="checkbox" name="anforderung" value="eigenversorgung"> Für die Eigenenergieversorgung</label>
+          <label><input type="checkbox" name="anforderung" value="stützenlast"> Spitzenlast Glättung</label>
+          <label><input type="checkbox" name="anforderung" value="frequenz"> Frequenzregulierung</label>
+          <label><input type="checkbox" name="anforderung" value="micronetze"> Micro Netze stabilisieren</label>
+          <label><input type="checkbox" name="anforderung" value="gemeinschaft"> Energiegemeinschaften</label>
+          <label><input type="checkbox" name="anforderung" value="notstrom"> Notstromversorgung</label>
+          <label><input type="checkbox" name="anforderung" value="insel"> Inselbetrieb</label>
+          <label><input type="checkbox" name="anforderung" value="verkauf"> Marktteilnahme Energieverkauf</label>
+          <label><input type="checkbox" name="anforderung" value="dynamisch"> Dynamische Strompreise nutzen</label>
+          <label><input type="checkbox" name="anforderung" value="regelenergie"> Regelenergie</label>
+        </div>
+      </fieldset>
+
+      <!-- C-Rate -->
+      <fieldset>
+        <legend>C-Rate von ESS</legend>
+        <div class="radio-group">
+          <label><input type="radio" name="crate" value="0.25C"> 0,25C</label>
+          <label><input type="radio" name="crate" value="0.5C"> 0,5C</label>
+          <label><input type="radio" name="crate" value="1C"> 1C</label>
+          <label><input type="radio" name="crate" value="2C"> 2C</label>
+          <label><input type="radio" name="crate" value="andere"> Andere</label>
+        </div>
+        <div class="input-group">
+          <label for="crateBemerkung" placeholder="Die C-Rate definiert den Anteil der Batterie Nennkapazität, die in oder geladen werden kann innerhalb einer bestimmten Zeit aus der Batterie entladen Zeitrahmen">Bemerkung:</label>
+          <textarea id="crateBemerkung" name="crateBemerkung" rows="2"></textarea>
+        </div>
+      </fieldset>
+      <!-- Geplante Umsetzungszeit -->
+      <fieldset>
+        <legend>Geplante Umsetzungszeit</legend>
+        <div class="input-group">
+          <label for="umsetzungsDatum">Datum:</label>
+          <input type="date" id="umsetzungsDatum" name="umsetzungsDatum">
+        </div>
+      </fieldset>
+      <!-- Kontakt -->
+      <fieldset>
+        <legend>Kontakt</legend>
+        <div class="input-group">
+          <label for="kontaktName">Name:</label>
+          <input type="text" id="kontaktName" name="kontaktName" required>
+        </div>
+        <div class="input-group">
+          <label for="kontaktEmail">E-Mail:</label>
+          <input type="email" id="kontaktEmail" name="kontaktEmail" required>
+        </div>
+      </fieldset>
+      <div style="text-align:center; margin-top: 24px;">
+        <button type="submit" style="padding: 16px 40px; background: #219150; color: #fff; border: none; border-radius: 6px; font-size: 20px; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.12); cursor: pointer; transition: background 0.2s;">Checkliste absenden</button>
+      </div>
+      </form>
+    </div>
+    <div class="pdf-right-col">
+      <div class="project-name-container" style="display: flex; align-items: center; gap: 20px;">
+        <div style="flex: 1;">
+          <label for="rightProjektName">Projekt Name:</label>
+          <input type="text" id="rightProjektName" name="rightProjektName" required>
+        </div>
+        <img src="aufbruch.jpg" alt="Aufbruch" style="max-width: 200px; height: auto;">
+      </div>
+      <h1 style="font-size: 32px; margin-bottom: 20px; color: #2c3e50; font-weight: bold; line-height: 1.2;">Off- & On Grid mit dem ECDS 1.1 Energiemanagment</h1>
+      <h2 style="font-size: 24px; margin-bottom: 15px; color: #34495e; line-height: 1.4;">Das ECDS 1.1 sorgt dafür, dass der Stromtarif für den Anwender, die nächsten 24h so minimals wie möglich ist.</h2>
+      <p style="font-size: 18px; margin-bottom: 25px; color: #7f8c8d; line-height: 1.6;">Das ECDS 1.1 Energiemanagementsystem dient zur Steuerung des Lade- und Entladeverhalten von Energiespeicher unter Einbezug von: Dynamischen Stromtarifen und der zu erwartenden Erträge aus lokalen Eigenstrom-Erzeugungsanlagen.</p>
+      <img src="angebot.jpg" alt="Gesamtübersicht" style="width: 100%; height: auto; display: block; border: 1px solid #ccc;">
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p><strong>Kontakt:</strong></p>
+    <p>E-Mail: <a href="mailto:office@neue-energie-technik.net">office@neue-energie-technik.net</a></p>
+    <p>Telefon: <a href="tel:+436628211000">+43 662 821100-0</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Handle click boxes
+      document.querySelectorAll('.click-box').forEach(box => {
+        box.addEventListener('click', function() {
+          const parent = this.closest('.radio-group');
+          if (parent) {
+            parent.querySelectorAll('.click-box').forEach(b => b.classList.remove('selected'));
+          }
+          this.classList.toggle('selected');
+        });
+      });
+
+      // Handle icon boxes
+      document.querySelectorAll('.right-section .icon-box').forEach(box => {
+        box.addEventListener('click', function() {
+          this.classList.toggle('selected');
+        });
+      });
+
+      // Handle form submission
+      const form = document.querySelector('form');
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Get the .pdf-main element
+        const element = document.querySelector('.pdf-main');
+        if (!element) {
+          console.error('Element .pdf-main not found');
+          return;
+        }
+
+        try {
+          // Create canvas from the element
+          const canvas = await html2canvas(element, {
+            scale: 2, // Higher scale for better quality
+            useCORS: true,
+            logging: false,
+            windowWidth: element.scrollWidth,
+            windowHeight: element.scrollHeight,
+            backgroundColor: '#ffffff'
+          });
+
+          // Create PDF
+          const { jsPDF } = window.jspdf;
+          const pdf = new jsPDF({
+            orientation: 'portrait',
+            unit: 'mm',
+            format: 'a4'
+          });
+
+          // A4 dimensions
+          const imgWidth = 210; // A4 width in mm
+          const pageHeight = 297; // A4 height in mm
+          
+          // Calculate scaling factor to ensure content fits on one page
+          const scale = Math.min(
+            imgWidth / canvas.width,
+            pageHeight / canvas.height
+          ) * 0.95; // 5% margin to ensure it fits on one page
+          
+          const scaledWidth = canvas.width * scale;
+          const scaledHeight = canvas.height * scale;
+          
+          // Center horizontally and vertically
+          const xOffset = (imgWidth - scaledWidth) / 2;
+          const yOffset = (pageHeight - scaledHeight) / 2;
+          
+          // Add the image to the PDF
+          pdf.addImage(
+            canvas.toDataURL('image/jpeg', 1.0),
+            'JPEG',
+            xOffset,
+            yOffset,
+            scaledWidth,
+            scaledHeight
+          );
+
+          // Save the PDF
+          pdf.save('checkliste.pdf');
+        } catch (error) {
+          console.error('Error generating PDF:', error);
+          alert('Fehler beim Generieren der PDF-Datei. Bitte versuchen Sie es erneut.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

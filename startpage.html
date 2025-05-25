@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Storage System Checkliste</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .description {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #666;
+        }
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+        .checklist-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .checklist-item:hover {
+            transform: translateY(-5px);
+        }
+        .checklist-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .checklist-item h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+        .checklist-item p {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .section-title {
+            text-align: center;
+            color: #333;
+            margin: 20px 0;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Energy Storage System Checkliste</h1>
+    <p class="description">Energiegemeinschaft mit Stromspeicher und Energiemanagement – Ziel: 100% Eigenenergieversorgung</p>
+    
+    <main>
+        <h2 class="section-title">Version wählen</h2>
+        <div class="checklist-grid">
+            <div class="checklist-item" onclick="location.href='standard.html'">
+                <img src="standard.jpg" alt="Standard Checkliste">
+                <h3>Energy Storage System Checkliste</h3>
+                <p>Grundlegende Checkliste für Energiespeichersysteme</p>
+            </div>
+            
+            <div class="checklist-item" onclick="location.href='hotel.html'">
+                <img src="hotel_pension.jpg" alt="Hotel & Pension Checkliste">
+                <h3>Hotel & Pension</h3>
+                <p>Spezialisierte Checkliste für Hotel- und Pensionseinrichtungen</p>
+            </div>
+            
+            <div class="checklist-item" onclick="location.href='industrie.html'">
+                <img src="industie.jpg" alt="Industrie & Gewerbe Checkliste">
+                <h3>Industrie & Gewerbe</h3>
+                <p>Umfassende Checkliste für industrielle und gewerbliche Anwendungen</p>
+            </div>
+            
+            <div class="checklist-item" onclick="location.href='on_off.html'">
+                <img src="angebot.jpg" alt="Landwirtschaft Checkliste">
+                <h3>On/Off Grid mit ECDS 1.1</h3>
+                <p>Energiegemeinschaften - autarke Dörfer - Schutzhütten - Landwirtschaft</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
