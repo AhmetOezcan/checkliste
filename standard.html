@@ -87,21 +87,32 @@
             format: 'a4'
           });
 
-          // Calculate dimensions to fit the content properly
+          // A4 dimensions
           const imgWidth = 210; // A4 width in mm
           const pageHeight = 297; // A4 height in mm
           
-          // Calculate scaling factor to fit the entire content on one page
-          const scale = Math.min(imgWidth / canvas.width, pageHeight / canvas.height);
+          // Calculate scaling factor to ensure content fits on one page
+          const scale = Math.min(
+            imgWidth / canvas.width,
+            pageHeight / canvas.height
+          ) * 0.95; // 5% margin to ensure it fits on one page
+          
           const scaledWidth = canvas.width * scale;
           const scaledHeight = canvas.height * scale;
           
-          // Center the image on the page
+          // Center horizontally and vertically
           const xOffset = (imgWidth - scaledWidth) / 2;
           const yOffset = (pageHeight - scaledHeight) / 2;
           
           // Add the image to the PDF
-          pdf.addImage(canvas.toDataURL('image/jpeg', 1.0), 'JPEG', xOffset, yOffset, scaledWidth, scaledHeight);
+          pdf.addImage(
+            canvas.toDataURL('image/jpeg', 1.0),
+            'JPEG',
+            xOffset,
+            yOffset,
+            scaledWidth,
+            scaledHeight
+          );
 
           // Save the PDF
           pdf.save('checkliste.pdf');

@@ -76,23 +76,29 @@ document.addEventListener('DOMContentLoaded', function() {
         // Calculate dimensions to fit the content properly
         const imgWidth = 210; // A4 width in mm
         const pageHeight = 297; // A4 height in mm
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        
+        // Calculate scaling factor to ensure content fits on one page
+        const scale = Math.min(
+          imgWidth / canvas.width,
+          pageHeight / canvas.height
+        ) * 0.95; // 5% margin to ensure it fits on one page
+        
+        const scaledWidth = canvas.width * scale;
+        const scaledHeight = canvas.height * scale;
+        
+        // Center horizontally and vertically
+        const xOffset = (imgWidth - scaledWidth) / 2;
+        const yOffset = (pageHeight - scaledHeight) / 2;
         
         // Add the image to the PDF
-        pdf.addImage(canvas.toDataURL('image/jpeg', 1.0), 'JPEG', 0, 0, imgWidth, imgHeight);
-
-        // If the content is taller than one page, add additional pages
-        let heightLeft = imgHeight;
-        let position = 0;
-        let page = 1;
-
-        while (heightLeft >= pageHeight) {
-          position = heightLeft - pageHeight;
-          pdf.addPage();
-          pdf.addImage(canvas.toDataURL('image/jpeg', 1.0), 'JPEG', 0, -position, imgWidth, imgHeight);
-          heightLeft -= pageHeight;
-          page++;
-        }
+        pdf.addImage(
+          canvas.toDataURL('image/jpeg', 1.0),
+          'JPEG',
+          xOffset,
+          yOffset,
+          scaledWidth,
+          scaledHeight
+        );
 
         // Save the PDF
         pdf.save('checkliste.pdf');

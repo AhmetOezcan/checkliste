@@ -457,11 +457,11 @@
           const imgWidth = 210; // A4 width in mm
           const pageHeight = 297; // A4 height in mm
           
-          // Calculate scaling factor to ensure content fits
+          // Calculate scaling factor to ensure content fits on one page
           const scale = Math.min(
             imgWidth / canvas.width,
             pageHeight / canvas.height
-          );
+          ) * 0.95; // 5% margin to ensure it fits on one page
           
           const scaledWidth = canvas.width * scale;
           const scaledHeight = canvas.height * scale;
