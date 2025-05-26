@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="standard.css">
   <style>
     .click-box {
-      background-color: #ffebee; /* Light red background */
+      background-color: #f8f9fa; /* Light gray background */
       padding: 8px 12px;
       border-radius: 4px;
       cursor: pointer;
@@ -20,7 +20,7 @@
     
     /* Style for larger icon boxes in right section */
     .right-section .icon-box {
-      background-color: #ffebee; /* Light red background */
+      background-color: #f8f9fa; /* Light gray background */
       border-radius: 8px;
       padding: 15px;
       transition: background-color 0.3s;
@@ -31,7 +31,7 @@
       color: #2e7d32; /* Dark green text */
     }
     .right-section .icon-box:hover {
-      background-color: #ffcdd2; /* Slightly darker red on hover */
+      background-color: #e9ecef; /* Slightly darker gray on hover */
     }
     .right-section .icon-box.selected:hover {
       background-color: #a5d6a7; /* Slightly darker green on hover */
@@ -58,6 +58,81 @@
       form {
         padding-bottom: 60px;
       }
+    }
+    .right-section {
+      position: relative;
+    }
+    .right-section::before {
+      content: '';
+      position: absolute;
+      top: 510px;
+      left: 50%;
+      width: 2px;
+      height: calc(100% - 510px);
+      background-color: #000000;
+      z-index: 0; /* Lower z-index to appear behind components */
+    }
+    .right-section::after {
+      content: 'Transformator';
+      position: absolute;
+      top: 480px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      color: #000000;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .right-section::after::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-image: url('transformator.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .right-section .icon-box[data-component]:not([data-component="netz"])::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -20px;
+      width: 20px;
+      height: 2px;
+      background-color: #000000;
+    }
+    .right-section .icon-box[data-component]:not([data-component="netz"])::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -20px;
+      width: 20px;
+      height: 2px;
+      background-color: #000000;
+    }
+    /* Hide the right line of the first box and left line of the second box in side-by-side pairs */
+    .right-section .icon-box[data-component]:not([data-component="netz"]):nth-child(odd)::after,
+    .right-section .icon-box[data-component]:not([data-component="netz"]):nth-child(even)::before {
+      display: none;
+    }
+    /* Hide lines for first and last boxes */
+    .right-section .icon-box:first-child::before,
+    .right-section .icon-box:last-child::after {
+      display: none;
+    }
+    .right-section .icon-box {
+      position: relative;
+      z-index: 2; /* Higher z-index to appear above the line */
+    }
+    .right-section .icon-box[data-component="alternatives-kraftwerk"] {
+      position: relative;
+      z-index: 2; /* Ensure Alternatives Kraftwerk appears above the line */
     }
   </style>
   <script>
@@ -373,7 +448,7 @@
             </div>
 
             <!-- Right side: Energiegemeinschaft -->
-            <div class="icon-box" data-component="energiegemeinschaft" style="flex: 1;">
+            <div class="icon-box" data-component="energiegemeinschaft" style="flex: 1; margin-left: 40px;">
               <img src="Energiegemeinschaft.jpg" alt="Energiegemeinschaft" class="icon-img">
               <div class="icon-label"><strong>Energiegemeinschaft</strong></div>
               <div class="icon-inputs">
