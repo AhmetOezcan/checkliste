@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="standard.css">
   <style>
     .click-box {
-      background-color: #f8f9fa; /* Light gray background */
+      background-color: #fff; /* Changed from #ffebee to white */
       padding: 8px 12px;
       border-radius: 4px;
       cursor: pointer;
@@ -17,10 +17,16 @@
       background-color: #c8e6c9; /* Light green when selected */
       color: #2e7d32; /* Dark green text */
     }
+    .click-box:hover {
+      background-color: #f5f5f5; /* Changed from #ffcdd2 to light gray */
+    }
+    .click-box.selected:hover {
+      background-color: #a5d6a7; /* Slightly darker green on hover */
+    }
     
     /* Style for larger icon boxes in right section */
     .right-section .icon-box {
-      background-color: #f8f9fa; /* Light gray background */
+      background-color: #fff; /* Changed from #ffebee to white */
       border-radius: 8px;
       padding: 15px;
       transition: background-color 0.3s;
@@ -31,7 +37,7 @@
       color: #2e7d32; /* Dark green text */
     }
     .right-section .icon-box:hover {
-      background-color: #e9ecef; /* Slightly darker gray on hover */
+      background-color: #f5f5f5; /* Changed from #ffcdd2 to light gray */
     }
     .right-section .icon-box.selected:hover {
       background-color: #a5d6a7; /* Slightly darker green on hover */
@@ -65,40 +71,98 @@
     .right-section::before {
       content: '';
       position: absolute;
-      top: 510px;
+      top: 200px;  /* Start after Netz Informationen section */
       left: 50%;
       width: 2px;
-      height: calc(100% - 510px);
-      background-color: #000000;
-      z-index: 0; /* Lower z-index to appear behind components */
+      height: calc(100% - 200px);  /* Adjust height to start from top position */
+      background-color: #000000;  /* Changed to black */
+      z-index: 0;  /* Lower z-index to be behind content */
     }
+    /* Add transformer label */
     .right-section::after {
-      content: 'Transformator';
+      content: 'Transformator ↓';
       position: absolute;
-      top: 480px;
+      top: 470px;  /* Position below Netz Informationen box */
       left: 50%;
       transform: translateX(-50%);
-      background-color: white;
+      background-color: #fff;
       padding: 5px 10px;
       border-radius: 4px;
+      font-size: 14px;
       font-weight: bold;
-      color: #000000;
+      color: #000;
       z-index: 2;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
-    .right-section::after::before {
+    .right-section .icon-box {
+      position: relative;
+      z-index: 2;
+      background-color: #fff;  /* Add white background to ensure content is visible */
+    }
+    .netz-section {
+      position: relative;
+      z-index: 2;
+      background-color: #fff;  /* Add white background to ensure content is visible */
+    }
+    .right-section .icon-box::before {
       content: '';
-      display: inline-block;
-      width: 24px;
-      height: 24px;
-      background-image: url('transformator.jpg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
+      position: absolute;
+      top: 50%;
+      left: -20px;
+      width: 20px;
+      height: 2px;
+      background-color: #000000;  /* Changed to black */
+      z-index: 1;
     }
-    .right-section .icon-box[data-component]:not([data-component="netz"])::before {
+    .right-section .icon-box::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -20px;
+      width: 20px;
+      height: 2px;
+      background-color: #000000;  /* Changed to black */
+      z-index: 1;
+    }
+    /* Remove horizontal lines for Energiespeicher-System, Stromtankstelle, and Info Terminal */
+    .right-section .icon-box[data-component="stromtankstelle"]::before,
+    .right-section .icon-box[data-component="stromtankstelle"]::after,
+    .right-section .icon-box[data-component="infoterminal"]::before,
+    .right-section .icon-box[data-component="infoterminal"]::after,
+    .right-section .icon-box[data-component="kraftwerk"]::before,
+    .right-section .icon-box[data-component="kraftwerk"]::after,
+    .right-section .icon-box[data-component="wasserstoff"]::after,
+    .right-section .icon-box[data-component="pvstation2"]::before,
+    .right-section .icon-box[data-component="generator1"]::before,
+    .right-section .icon-box[data-component="generator2"]::before,
+    .right-section .icon-box[data-component="energiegemeinschaft"]::after,
+    .right-section .icon-box[data-component="ess"]::before {
+      display: none;
+    }
+
+    /* Special handling for PV Station 2, Generators and Energiespeicher */
+    .right-section .icon-box[data-component="pvstation2"],
+    .right-section .icon-box[data-component="generator1"],
+    .right-section .icon-box[data-component="generator2"],
+    .right-section .icon-box[data-component="ess"],
+    .right-section .icon-box[data-component="energiegemeinschaft"] {
+      position: relative;
+    }
+    .right-section .icon-box[data-component="pvstation2"]::after,
+    .right-section .icon-box[data-component="generator1"]::after,
+    .right-section .icon-box[data-component="generator2"]::after,
+    .right-section .icon-box[data-component="ess"]::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -49px;
+      width: 49px;
+      height: 2px;
+      background-color: #000000;
+      z-index: 1;
+    }
+
+    /* Special handling for Energiegemeinschaft line */
+    .right-section .icon-box[data-component="energiegemeinschaft"]::before {
       content: '';
       position: absolute;
       top: 50%;
@@ -106,33 +170,8 @@
       width: 20px;
       height: 2px;
       background-color: #000000;
-    }
-    .right-section .icon-box[data-component]:not([data-component="netz"])::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: -20px;
-      width: 20px;
-      height: 2px;
-      background-color: #000000;
-    }
-    /* Hide the right line of the first box and left line of the second box in side-by-side pairs */
-    .right-section .icon-box[data-component]:not([data-component="netz"]):nth-child(odd)::after,
-    .right-section .icon-box[data-component]:not([data-component="netz"]):nth-child(even)::before {
-      display: none;
-    }
-    /* Hide lines for first and last boxes */
-    .right-section .icon-box:first-child::before,
-    .right-section .icon-box:last-child::after {
-      display: none;
-    }
-    .right-section .icon-box {
-      position: relative;
-      z-index: 2; /* Higher z-index to appear above the line */
-    }
-    .right-section .icon-box[data-component="alternatives-kraftwerk"] {
-      position: relative;
-      z-index: 2; /* Ensure Alternatives Kraftwerk appears above the line */
+      z-index: 1;
+      transform: translateX(5px);
     }
   </style>
   <script>
