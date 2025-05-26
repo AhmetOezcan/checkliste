@@ -348,8 +348,11 @@
           <input type="email" id="kontaktEmail" name="kontaktEmail" required>
         </div>
       </fieldset>
-      <div style="text-align:center; margin-top: 24px;" class="submit-button-container">
-        <button type="submit" style="padding: 16px 40px; background: #219150; color: #fff; border: none; border-radius: 6px; font-size: 20px; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.12); cursor: pointer; transition: background 0.2s;">Checkliste absenden</button>
+      <div style="text-align:center; margin-top: 24px;">
+        <p style="margin-bottom: 16px; color: #2c3e50; font-size: 16px;">Bitte senden Sie die ausgefüllte Checkliste per E-Mail an uns.</p>
+        <div class="submit-button-container">
+          <button type="submit" style="padding: 16px 40px; background: #219150; color: #fff; border: none; border-radius: 6px; font-size: 20px; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.12); cursor: pointer; transition: background 0.2s;">PDF generieren</button>
+        </div>
       </div>
       </form>
     </div>
@@ -643,6 +646,9 @@
 
           // Save the PDF
           pdf.save('checkliste.pdf');
+
+          // Open email client with the specified email address
+          window.location.href = 'mailto:office@neue-energie-technik.net';
         } catch (error) {
           console.error('Error generating PDF:', error);
           alert('Fehler beim Generieren der PDF-Datei. Bitte versuchen Sie es erneut.');
