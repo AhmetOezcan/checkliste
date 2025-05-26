@@ -202,6 +202,10 @@
     .right-section .icon-box.selected:hover::after {
       background-color: #219150;
     }
+    .header-logo {
+      background: transparent;
+      mix-blend-mode: multiply;
+    }
   </style>
 </head>
 <body>
@@ -432,13 +436,13 @@
                 <div class="icon-box" data-component="pvstation1" style="flex: 1;">
                   <img src="PV_Station.jpg" alt="PV-Station 1" class="icon-img">
                   <div class="icon-label"><strong>PV-Station</strong></div>
-                  <div class="icon-input"><label>Leistung (kVA): <input type="number" name="pvLeistung1" min="0" step="any"></label></div>
+                  <div class="icon-input"><label>Leistung (kWp): <input type="number" name="pvLeistung1" min="0" step="any"></label></div>
                 </div>
 
                 <div class="icon-box" data-component="pvstation2" style="flex: 1;">
                   <img src="PV_Station2.jpg" alt="PV-Station 2" class="icon-img">
                   <div class="icon-label"><strong>PV-Station</strong></div>
-                  <div class="icon-input"><label>Leistung (kVA): <input type="number" name="pvLeistung2" min="0" step="any"></label></div>
+                  <div class="icon-input"><label>Leistung (kW): <input type="number" name="pvLeistung2" min="0" step="any"></label></div>
                 </div>
               </div>
 
@@ -447,13 +451,13 @@
                 <div class="icon-box" data-component="generator1" style="flex: 1;">
                   <img src="Generator1.jpg" alt="Generator 1" class="icon-img">
                   <div class="icon-label"><strong>Generator</strong></div>
-                  <div class="icon-input"><label>Leistung (kVA): <input type="number" name="generatorLeistung1" min="0" step="any"></label></div>
+                  <div class="icon-input"><label>Leistung (kWA): <input type="number" name="generatorLeistung1" min="0" step="any"></label></div>
                 </div>
 
                 <div class="icon-box" data-component="generator2" style="flex: 1;">
                   <img src="Generator2.jpg" alt="Generator 2" class="icon-img">
                   <div class="icon-label"><strong>Generator</strong></div>
-                  <div class="icon-input"><label>Leistung (kVA): <input type="number" name="generatorLeistung2" min="0" step="any"></label></div>
+                  <div class="icon-input"><label>Leistung (kWA): <input type="number" name="generatorLeistung2" min="0" step="any"></label></div>
                 </div>
               </div>
             </div>

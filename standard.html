@@ -178,6 +178,10 @@
       z-index: 1;
       transform: translateX(5px);
     }
+    .header-logo {
+      background: transparent;
+      mix-blend-mode: multiply;
+    }
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -452,7 +456,7 @@
               <img src="WasserstoffE.jpg" alt="Wasserstoff Elektolyse" class="icon-img">
               <div class="icon-label"><strong>Wasserstoff Elektolyse</strong></div>
               <div class="icon-subtitle">Erzeugungsanlage</div>
-              <div class="icon-input"><label>Leistung (kVA): <input type="number" name="wasserstoffLeistung" min="0" step="any"></label></div>
+              <div class="icon-input"><label>Leistung (kW): <input type="number" name="wasserstoffLeistung" min="0" step="any"></label></div>
             </div>
           </div>
 
@@ -465,13 +469,13 @@
                 <div class="icon-box" data-component="pvstation1" style="flex: 1;">
               <img src="PV_Station.jpg" alt="PV-Station 1" class="icon-img">
               <div class="icon-label"><strong>PV-Station</strong></div>
-              <div class="icon-input"><label>Leistung (kVA): <input type="number" name="pvLeistung1" min="0" step="any"></label></div>
+              <div class="icon-input"><label>Leistung (kWp): <input type="number" name="pvLeistung1" min="0" step="any"></label></div>
             </div>
 
                 <div class="icon-box" data-component="pvstation2" style="flex: 1;">
               <img src="PV_Station2.jpg" alt="PV-Station 2" class="icon-img">
               <div class="icon-label"><strong>PV-Station</strong></div>
-              <div class="icon-input"><label>Leistung (kVA): <input type="number" name="pvLeistung2" min="0" step="any"></label></div>
+              <div class="icon-input"><label>Leistung (kW): <input type="number" name="pvLeistung2" min="0" step="any"></label></div>
                 </div>
             </div>
 
@@ -480,13 +484,13 @@
                 <div class="icon-box" data-component="generator1" style="flex: 1;">
               <img src="Generator1.jpg" alt="Generator 1" class="icon-img">
               <div class="icon-label"><strong>Generator</strong></div>
-              <div class="icon-input"><label>Leistung (kVA): <input type="number" name="generatorLeistung1" min="0" step="any"></label></div>
+              <div class="icon-input"><label>Leistung (kWA): <input type="number" name="generatorLeistung1" min="0" step="any"></label></div>
             </div>
 
                 <div class="icon-box" data-component="generator2" style="flex: 1;">
               <img src="Generator2.jpg" alt="Generator 2" class="icon-img">
               <div class="icon-label"><strong>Generator</strong></div>
-              <div class="icon-input"><label>Leistung (kVA): <input type="number" name="generatorLeistung2" min="0" step="any"></label></div>
+              <div class="icon-input"><label>Leistung (kWA): <input type="number" name="generatorLeistung2" min="0" step="any"></label></div>
                 </div>
               </div>
             </div>
@@ -520,8 +524,7 @@
                 <input type="number" name="brennstoffzelleStromlieferung" min="0" step="any">
               </div>
               <div class="icon-input">
-                <label>Leistung (kVA):</label>
-                <input type="number" name="brennstoffzelleLeistung" min="0" step="any">
+                <label>Leistung (kW): <input type="number" name="brennstoffzelleLeistung" min="0" step="any"></label>
               </div>
             </div>
           </div>
