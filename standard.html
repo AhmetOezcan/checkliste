@@ -37,7 +37,12 @@
       color: #2e7d32; /* Dark green text */
     }
     .right-section .icon-box:hover {
-      background-color: #f5f5f5; /* Changed from #ffcdd2 to light gray */
+      background-color: #f5f5f5;  /* Changed from #ffcdd2 to light gray */
+      border: 2px solid #e0e0e0;  /* Changed from #f44336 to light gray */
+    }
+    .right-section .icon-box:hover::before,
+    .right-section .icon-box:hover::after {
+      background-color: #000000;  /* Changed from #f44336 to black */
     }
     .right-section .icon-box.selected:hover {
       background-color: #a5d6a7; /* Slightly darker green on hover */
