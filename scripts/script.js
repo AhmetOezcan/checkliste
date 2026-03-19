@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // The pages live in `pages/`, while images are in `assets/images/`.
+  // After reorganizing the directory, fix relative <img src="filename.ext"> paths automatically.
+  document.querySelectorAll('img').forEach(img => {
+    const rawSrc = img.getAttribute('src');
+    if (!rawSrc) return;
+
+    // Keep external/data URLs as-is.
+    if (rawSrc.startsWith('http://') || rawSrc.startsWith('https://') || rawSrc.startsWith('data:')) return;
+    // If the src already contains a path, don't touch it.
+    if (rawSrc.includes('/')) return;
+    // Only rewrite common image types.
+    if (!/\.(png|jpe?g|gif|webp)$/i.test(rawSrc)) return;
+
+    img.setAttribute('src', `../assets/images/${rawSrc}`);
+  });
+
   // EMS click boxes
   const emsClickBoxes = document.querySelectorAll('.ems-section .click-box');
   emsClickBoxes.forEach(box => {

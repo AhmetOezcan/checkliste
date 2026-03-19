@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Energy Storage System Checkliste</title>
-  <link rel="stylesheet" href="hotel.css">
+  <link rel="stylesheet" href="../styles/hotel.css">
   <style>
     .icon-grid {
       margin-bottom: 20px;  /* Reduced space after generator grid */
@@ -309,24 +309,6 @@
           <textarea id="crateBemerkung" name="crateBemerkung" rows="2" placeholder="Die C-Rate definiert den Anteil der Batterie Nennkapazität, die in oder geladen werden kann innerhalb einer bestimmten Zeit aus der Batterie entladen Zeitrahmen"></textarea>
         </div>
       </fieldset>
-
-      <!-- Energieverbrauch -->
-      <fieldset>
-        <legend>Energieverbrauch</legend>
-        <div class="input-group">
-          <label for="energieverbrauchTag">Tag (kWh):</label>
-          <input type="number" id="energieverbrauchTag" name="energieverbrauchTag" min="0" step="any">
-        </div>
-        <div class="input-group">
-          <label for="energieverbrauchNacht">Nacht (kWh):</label>
-          <input type="number" id="energieverbrauchNacht" name="energieverbrauchNacht" min="0" step="any">
-        </div>
-        <div class="input-group">
-          <label for="energieverbrauchEigenstrom">Eigenstrom (kWh):</label>
-          <input type="number" id="energieverbrauchEigenstrom" name="energieverbrauchEigenstrom" min="0" step="any">
-        </div>
-      </fieldset>
-
       <!-- Geplante Umsetzungszeit -->
       <fieldset>
         <legend>Geplante Umsetzungszeit</legend>
@@ -335,7 +317,6 @@
           <input type="date" id="umsetzungsDatum" name="umsetzungsDatum">
         </div>
       </fieldset>
-
       <!-- Kontakt -->
       <fieldset>
         <legend>Kontakt</legend>
@@ -418,7 +399,7 @@
           <div class="third-row" style="display: flex; gap: 20px; margin-bottom: 20px;">
             <!-- Energiegemeinschaft Component -->
             <div class="icon-box" data-component="energiegemeinschaft" style="flex: 1;">
-              <img src="hotelhaus.jpg" alt="Energiegemeinschaft" class="icon-img">
+              <img src="gewerbehaus.jpg" alt="Energiegemeinschaft" class="icon-img">
               <div class="icon-label"><strong>Energiegemeinschaft</strong></div>
               <div class="icon-inputs">
                 <div class="checkbox-group">
@@ -567,7 +548,7 @@
     <p>Telefon: <a href="tel:+436628211000">+43 662 821100-0</a></p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="../scripts/script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script>
