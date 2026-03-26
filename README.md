@@ -38,7 +38,7 @@ The goal was to:
 
 ## Live Demo
 
-# ⚡ Energy Storage System Checklist
+# Energy Storage System Checklist
 
 A modern, responsive web-based checklist for technical planning and evaluation of energy storage systems.
 
